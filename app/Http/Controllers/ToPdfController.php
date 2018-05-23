@@ -44,11 +44,13 @@ class ToPdfController extends Controller
         "pegawai" => $pegawai, 'kehadiran' => $kehadiran, 'banyak_hari' => $banyak_hari, 'potongan' => ($banyak_hari-$kehadiran)*15000, 'bulan' => $bulan
       ]);
 
+      // dd($pdf);
+
       // $pdf = PDF::loadview('slip', [
       //   "pegawai" => $pegawai, 'kehadiran' => $kehadiran, 'banyak_hari' => $banyak_hari, 'potongan' => ($banyak_hari-$kehadiran)*15000, 'bulan' => $bulan
       // ]);
       return $pdf->stream('slip gaji id_'.$pegawai->id.' '.date('Y-m-d').'.pdf');
-      return response()->json($pegawai);
+      // return response()->json($pegawai);
     }
 
     public function lab($id){
